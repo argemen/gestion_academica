@@ -12,5 +12,25 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require turbolinks 
+//= require jquery-1.11.1.min
+//= require jquery-migrate-1.2.1.min
+//= require bootstrap.min
+//= require modernizr.min
+//= require pace.min
+//= require retina.min
+//= require jquery.cookies
+
+//= require flot/jquery.flot.min
+//= require flot/jquery.flot.resize.min
+//= require flot/jquery.flot.spline.min
+
+//= require jquery.sparkline.min
+//= require morris.min
+//= require raphael-2.1.0.min
+//= require bootstrap-wizard.min
+//= require select2.min
+
+//= require custom
+//= require dashboard
+
