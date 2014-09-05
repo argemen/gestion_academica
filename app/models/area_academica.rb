@@ -1,6 +1,7 @@
 class AreaAcademica < ActiveRecord::Base
-	belongs_to :institucion
-
-	validates_uniqueness_of :nombre
-	validates_presence_of :nombre
+  belongs_to :institucion
+  has_many :carrera
+	
+  validates_presence_of :nombre, :telefono
+  validates_uniqueness_of :nombre
 end

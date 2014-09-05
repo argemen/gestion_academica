@@ -33,7 +33,10 @@
                 </div><!-- header-left -->
                 
                 <div class="header-right">
-                    
+                     <div class="pull-right">
+                     <div class="btn-group btn-group-list btn-group-notification">
+                     </div>
+                     </div>
                         <div class="btn-group btn-group-option">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                               <i class="fa fa-caret-down"></i>
@@ -68,11 +71,13 @@
                         </div>
                     </div><!-- media -->
                     
-                    <h5 class="leftpanel-title">Navigation</h5>
+                    <h5 class="leftpanel-title">Menu</h5>
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="index-2.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-                        <li><a href="messages.html"><span class="pull-right badge">5</span><i class="fa fa-envelope-o"></i> <span>Messages</span></a></li>
-                        <li class="parent"><a href="#"><i class="fa fa-suitcase"></i> <span>UI Elements</span></a>
+                        <li><a href="/instituciones"><i class="fa fa-navicon"></i> <span>Instituciones</span></a></li>
+                        <li><a href="/areas_academicas"><i class="fa fa-calendar"></i> <span>Areas Academicas</span></a></li>
+                        <li><a href="/carreras"><i class="fa fa-flag"></i> <span>Carreras</span></a></li>
+                        
+                        <li class="parent"><a href="#"></i> <span>UI Elements</span></a>
                             <ul class="children">
                                 <li><a href="alerts.html">Alerts &amp; Notifications</a></li>
                                 <li><a href="buttons.html">Buttons</a></li>
@@ -103,21 +108,6 @@
                             </ul>
                         </li>
                         <li><a href="maps.html"><i class="fa fa-map-marker"></i> <span>Maps</span></a></li>
-                        <li class="parent"><a href="#"><i class="fa fa-file-text"></i> <span>Pages</span></a>
-                            <ul class="children">
-                                <li><a href="notfound.html">404 Page</a></li>
-                                <li><a href="blank.html">Blank Page</a></li>
-                                <li><a href="calendar.html">Calendar</a></li>
-                                <li><a href="invoice.html">Invoice</a></li>
-                                <li><a href="locked.html">Locked Screen</a></li>
-                                <li><a href="media-manager.html">Media Manager</a></li>
-                                <li><a href="people-directory.html">People Directory</a></li>
-                                <li><a href="profile.html">Profile</a></li>                                
-                                <li><a href="search-results.html">Search Results</a></li>
-                                <li><a href="signin.html">Sign In</a></li>
-                                <li><a href="signup.html">Sign Up</a></li>
-                            </ul>
-                        </li>
                         
                     </ul>
                     
@@ -127,14 +117,10 @@
                     <div class="pageheader">
                         <div class="media">
                             <div class="pageicon pull-left">
-                                <i class="fa fa-home"></i>
+                                <%= image_tag "#{controller_name}.png", size: "30x35"  %>
                             </div>
                             <div class="media-body">
-                                <ul class="breadcrumb">
-                                    <li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
-                                    <li>Dashboard</li>
-                                </ul>
-                                <h4>Dashboard</h4>
+                               <h4><%= controller_name.capitalize %></h4>
                             </div>
                         </div><!-- media -->
                     </div><!-- pageheader -->
@@ -147,5 +133,85 @@
                 </div><!-- mainpanel -->
             </div><!-- mainwrapper -->
         </section>
+        <script>
+            jQuery(document).ready(function(){
+                
+                jQuery('#basicTable').DataTable({
+                    responsive: true,
+                    "columnDefs": [ { "targets": 2, "orderable": false }]
+                });
+                
+                var shTable = jQuery('#shTable').DataTable({
+                    "fnDrawCallback": function(oSettings) {
+                        jQuery('#shTable_paginate ul').addClass('pagination-active-dark');
+                    },
+                    responsive: true
+                });
+                
+                // Show/Hide Columns Dropdown
+                jQuery('#shCol').click(function(event){
+                    event.stopPropagation();
+                });
+                
+                jQuery('#shCol input').on('click', function() {
+
+                    // Get the column API object
+                    var column = shTable.column($(this).val());
+ 
+                    // Toggle the visibility
+                    if ($(this).is(':checked'))
+                        column.visible(true);
+                    else
+                        column.visible(false);
+                });
+                
+                var exRowTable = jQuery('#exRowTable').DataTable({
+                    responsive: true,
+                    "fnDrawCallback": function(oSettings) {
+                        jQuery('#exRowTable_paginate ul').addClass('pagination-active-success');
+                    },
+                    "ajax": "ajax/objects.txt",
+                    "columns": [
+                        {
+                            "class":          'details-control',
+                            "orderable":      false,
+                            "data":           null,
+                            "defaultContent": ''
+                        },
+                        { "data": "name" },
+                        { "data": "position" },
+                        { "data": "office" },
+                        { "data": "salary" }
+                    ],
+                    "order": [[1, 'asc']] 
+                });
+                
+                // Add event listener for opening and closing details
+                jQuery('#exRowTable tbody').on('click', 'td.details-control', function () {
+                    var tr = $(this).closest('tr');
+                    var row = exRowTable.row( tr );
+             
+                    if ( row.child.isShown() ) {
+                        // This row is already open - close it
+                        row.child.hide();
+                        tr.removeClass('shown');
+                    }
+                    else {
+                        // Open this row
+                        row.child( format(row.data()) ).show();
+                        tr.addClass('shown');
+                    }
+                });
+               
+                
+                // DataTables Length to Select2
+                jQuery('div.dataTables_length select').removeClass('form-control input-sm');
+                jQuery('div.dataTables_length select').css({width: '60px'});
+                jQuery('div.dataTables_length select').select2({
+                    minimumResultsForSearch: -1
+                });
+    
+            });
+        </script>
     </body>
 </html>

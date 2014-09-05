@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140817014223) do
+ActiveRecord::Schema.define(version: 20140904231223) do
 
   create_table "areas_academicas", force: true do |t|
     t.integer  "institucion_id"
+    t.string   "nombre"
+    t.string   "telefono"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "areas_academicas", ["institucion_id"], name: "institucion_id", using: :btree
+
+  create_table "carreras", force: true do |t|
+    t.integer  "area_academica"
     t.string   "nombre"
     t.string   "telefono"
     t.datetime "created_at"

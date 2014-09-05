@@ -149,7 +149,7 @@ a:focus {
 .headerwrapper .header-right .btn-group {
     margin: 0;
     line-height: 21px;
-    float: left;
+    float: right;
 }
 
 .headerwrapper .header-right .btn-group > .btn {
@@ -342,11 +342,11 @@ a:focus {
     line-height: 18px;
 }
 
-.dropdown-list .media-body strong {
+.dropdown-list .media-body strong {    
     font-weight: 500;
     color: #2f363d;
 }
-
+  
 .dropdown-list .media-body p {
     margin: 0;
 }
@@ -424,8 +424,8 @@ a:focus {
 }
 
 .leftpanel .profile-left {
-    padding: 15px;
-    min-height: 90px;
+    padding: 5px;
+    min-height: 50px;
     background-color: #fff;
     border-bottom: 1px solid #eee;
     -webkit-box-shadow: 0 2px 3px rgba(0,0,0,0.03);
@@ -609,10 +609,10 @@ a:focus {
 }
 
 .pageheader {
-    padding: 20px;
+    padding: 10px;
     border-bottom: 1px solid #eee;
     padding-bottom: 20px;
-    height: 90px;
+    height: 69px;
     -webkit-box-shadow: 0 2px 3px rgba(0,0,0,0.03);
     box-shadow: 0 2px 3px rgba(0,0,0,0.03);
 }
@@ -623,15 +623,13 @@ a:focus {
 }
 
 .pageheader .pageicon {
-    width: 50px;
-    height: 50px;
-    background-color: #4e5154;
+    width: 30px;
+    height: 40px;
     display: inline-block;
     color: #fff;
     font-size: 32px;
-    border-radius: 3px;
-    padding-top: 1px;
-    padding-left: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .pageheader .pageicon .fa-envelope-o {
@@ -706,7 +704,7 @@ a:focus {
 }
 
 .pageheader h4 {
-    margin: -2px 0 0 0;
+    margin: 8px 0 0 0;
     font-size: 28px;
     font-weight: 500;
     color: #2f363d;

@@ -10,16 +10,18 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="field">
-    <%= f.label :siglas %><br>
-    <%= f.text_field :siglas %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="panel-body nopadding">
+  <div class="form-group">
+    <%= f.label :nombre, class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8"><%= f.text_field :nombre, class: 'form-control' %></div>
+  </div><!-- form-group -->
+  <div class="form-group">
+    <%= f.label :siglas, class: 'col-sm-4 control-label' %><br>
+    <div class="col-sm-8"><%= f.text_field :siglas, class: 'form-control' %></div>
+  </div><!-- form-group -->
+  <div class="panel-footer">
+    <button type="submit" class="btn btn-primary mr5">Guardar</button>
+    <button type="reset" class="btn btn-default">Limpiar</button>
+</div>
 <% end %>
+</div><!-- panel-body -->

@@ -21,6 +21,7 @@
 //= require retina.min
 //= require jquery.cookies
 
+
 //= require flot/jquery.flot.min
 //= require flot/jquery.flot.resize.min
 //= require flot/jquery.flot.spline.min
@@ -29,8 +30,10 @@
 //= require morris.min
 //= require raphael-2.1.0.min
 //= require bootstrap-wizard.min
+
+//= require jquery.dataTables.min
+//= require dataTables.bootstrap
+//= require dataTables.responsive
+
 //= require select2.min
-
 //= require custom
-//= require dashboard
-

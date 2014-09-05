@@ -15,4 +15,7 @@
  *= require_style.default
  *= require_morris
  *= require_select2
+ *= require_style.datatables
+ *= require_dataTables.responsive
+
   */

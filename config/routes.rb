@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :carreras
+
+  resources :areas_academicas
+
   resources :instituciones
 
   # The priority is based upon order of creation: first created -> highest priority.

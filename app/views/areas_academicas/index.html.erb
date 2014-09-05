@@ -1,0 +1,29 @@
+<table id="basicTable" class="table table-striped table-bordered responsive">
+  <thead class="">
+    <tr>
+      <th>Nombre</th>
+      <th>Telefono</th>
+      <th>Institucion</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @areas_academicas.each do |area_academica| %>
+      <tr>
+        <td><%= area_academica.nombre %></td>
+        <td><%= area_academica.telefono %></td>
+        <td><%= area_academica.institucion.nombre %></td>
+        <td><%= link_to 'Show', area_academica %></td>
+        <td><%= link_to 'Edit', edit_area_academica_path(area_academica) %></td>
+        <td><%= link_to 'Destroy', area_academica, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Area academica', new_area_academica_path %>

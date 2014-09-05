@@ -1,14 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="panel-btns">
+            <a href="#" class="panel-minimize tooltips" data-toggle="tooltip" title="Minimize Panel"><i class="fa fa-minus"></i></a>
+            <a href="#" class="panel-close tooltips" data-toggle="tooltip" title="Close Panel"><i class="fa fa-times"></i></a>
+        </div><!-- panel-btns -->
+        <h4 class="panel-title">Informacion de la Institucion</h4>
+    </div>
+	<div class="panel-body nopadding">
+	<p>
+	  <strong>Nombre:</strong>
+	  <%= @institucion.nombre %>
+	</p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @institucion.nombre %>
-</p>
-
-<p>
-  <strong>Siglas:</strong>
-  <%= @institucion.siglas %>
-</p>
-
-<%= link_to 'Edit', edit_institucion_path(@institucion) %> |
-<%= link_to 'Back', instituciones_path %>
+	<p>
+	  <strong>Siglas:</strong>
+	  <%= @institucion.siglas %>
+	</p>
+	</div>
+</div>

@@ -10,15 +10,18 @@ class InstitucionesController < ApplicationController
   # GET /instituciones/1
   # GET /instituciones/1.json
   def show
+    render :layout => false
   end
 
   # GET /instituciones/new
   def new
     @institucion = Institucion.new
+    render :layout => false
   end
 
   # GET /instituciones/1/edit
   def edit
+    render :layout => false
   end
 
   # POST /instituciones
@@ -28,8 +31,8 @@ class InstitucionesController < ApplicationController
 
     respond_to do |format|
       if @institucion.save
-        format.html { redirect_to @institucion, notice: 'Institucion was successfully created.' }
-        format.json { render :show, status: :created, location: @institucion }
+        format.html { redirect_to instituciones_path, notice: 'Institucion almacenada con exito' }
+        format.json { render :index, status: :created}
       else
         format.html { render :new }
         format.json { render json: @institucion.errors, status: :unprocessable_entity }
