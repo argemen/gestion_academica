@@ -11,15 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907010910) do
+ActiveRecord::Schema.define(version: 20140907220343) do
 
   create_table "areas_academicas", force: true do |t|
-    t.integer  "institucion"
+    t.integer  "institucion_id", null: false
     t.string   "nombre"
     t.string   "telefono"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "areas_academicas", ["institucion_id"], name: "institucion_id", using: :btree
 
   create_table "carreras", force: true do |t|
     t.integer  "area_academica_id", null: false
@@ -31,9 +33,27 @@ ActiveRecord::Schema.define(version: 20140907010910) do
 
   add_index "carreras", ["area_academica_id"], name: "area_academica_id", using: :btree
 
+  create_table "evaluaciones", force: true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "instituciones", force: true do |t|
     t.string   "nombre"
     t.string   "siglas"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "secciones", force: true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "semestres", force: true do |t|
+    t.string   "nombre"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

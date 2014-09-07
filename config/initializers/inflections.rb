@@ -8,6 +8,8 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.singular /^(ox)en/i, '\1'
    inflect.irregular 'institucion', 'instituciones'
    inflect.irregular 'area_academica', 'areas_academicas'
+   inflect.irregular 'seccion', 'secciones'
+   inflect.irregular 'evaluacion', 'evaluaciones'
 #   inflect.uncountable %w( fish sheep )
 end
 

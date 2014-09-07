@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  resources :evaluaciones
+
+  resources :secciones
+
+  resources :semestres
+
   resources :carreras 
 
   resources :areas_academicas do

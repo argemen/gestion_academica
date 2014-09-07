@@ -1,0 +1,23 @@
+<%= form_for(@evaluacion) do |f| %>
+  <% if @evaluacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@evaluacion.errors.count, "error") %> prohibited this evaluacion from being saved:</h2>
+
+      <ul>
+      <% @evaluacion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="panel-body nopadding">
+  <div class="form-group">
+    <%= f.label :nombre, class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8"><%= f.text_field :nombre, placeholder: 'Ingrese nombre', autocomplete: 'off', class: 'form-control' %></div>
+  </div>
+  <div class="panel-footer">
+    <button type="submit" class="btn btn-primary mr5">Guardar</button>
+    <button type="reset" class="btn btn-default">Limpiar</button>
+  </div>
+  <% end %>
+</div>
