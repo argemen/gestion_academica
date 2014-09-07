@@ -191,7 +191,15 @@
 	top: 0;
 	left: 0;
 	cursor: default;
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 1500;
+    max-height: 250px;
+    overflow: auto;
 }
+
 .ui-button {
 	display: inline-block;
 	position: relative;

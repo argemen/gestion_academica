@@ -10,20 +10,24 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :area_academica %><br>
-    <%= f.number_field :area_academica %>
+<div class="panel-body nopadding">
+<%= f.hidden_field :area_academica_id, id: 'area_academica_id'%>
+  <div class="form-group">
+    <%= f.label :area_academica_nombre, class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8"><%= f.autocomplete_field :area_academica_nombre, autocomplete_area_academica_nombre_areas_academicas_path, :update_elements => {:id => '#area_academica_id'}, placeholder: 'Ingrese nombre del Area Academica', multiple: false, class: 'form-control' %></div>
   </div>
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
   </div>
-  <div class="field">
-    <%= f.label :telefono %><br>
-    <%= f.text_field :telefono %>
+  <div class="form-group">
+    <%= f.label :nombre, class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8"><%= f.text_field :nombre, placeholder: 'Ingrese nombre de la carrera', autocomplete: 'off', class: 'form-control' %></div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :telefono, class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8"><%= f.text_field :telefono, placeholder: 'Ingrese telefono', autocomplete: 'off', class: 'form-control' %></div>
   </div>
+  <div class="panel-footer">
+    <button type="submit" class="btn btn-primary mr5">Guardar</button>
+    <button type="reset" class="btn btn-default">Limpiar</button>
+</div>
 <% end %>
+</div><!-- panel-body -->

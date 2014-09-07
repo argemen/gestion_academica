@@ -13,11 +13,11 @@
 <div class="panel-body nopadding">
   <div class="form-group">
     <%= f.label :nombre, class: 'col-sm-4 control-label' %>
-    <div class="col-sm-8"><%= f.text_field :nombre, class: 'form-control' %></div>
+    <div class="col-sm-8"><%= f.text_field :nombre, autocomplete: 'off', placeholder: 'Ingrese nombre de la institucion', class: 'form-control' %></div>
   </div><!-- form-group -->
   <div class="form-group">
     <%= f.label :siglas, class: 'col-sm-4 control-label' %><br>
-    <div class="col-sm-8"><%= f.text_field :siglas, class: 'form-control' %></div>
+    <div class="col-sm-8"><%= f.text_field :siglas, autocomplete: 'off', placeholder: 'Ingrese siglas de la institucion', class: 'form-control' %></div>
   </div><!-- form-group -->
   <div class="panel-footer">
     <button type="submit" class="btn btn-primary mr5">Guardar</button>

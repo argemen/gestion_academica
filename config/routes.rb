@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
-  resources :carreras
+  
+  resources :carreras 
 
-  resources :areas_academicas
+  resources :areas_academicas do
+    collection do
+      get :autocomplete_area_academica_nombre
+    end
+  end
 
-  resources :instituciones
+  resources :instituciones do
+    collection do 
+      get :autocomplete_institucion_nombre
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

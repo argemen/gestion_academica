@@ -18,7 +18,7 @@ class AreaAcademicasControllerTest < ActionController::TestCase
 
   test "should create area_academica" do
     assert_difference('AreaAcademica.count') do
-      post :create, area_academica: {  }
+      post :create, area_academica: { institucion: @area_academica.institucion, nombre: @area_academica.nombre, telefono: @area_academica.telefono }
     end
 
     assert_redirected_to area_academica_path(assigns(:area_academica))
@@ -35,7 +35,7 @@ class AreaAcademicasControllerTest < ActionController::TestCase
   end
 
   test "should update area_academica" do
-    patch :update, id: @area_academica, area_academica: {  }
+    patch :update, id: @area_academica, area_academica: { institucion: @area_academica.institucion, nombre: @area_academica.nombre, telefono: @area_academica.telefono }
     assert_redirected_to area_academica_path(assigns(:area_academica))
   end
 

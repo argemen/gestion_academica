@@ -5,20 +5,24 @@ class CarrerasController < ApplicationController
   # GET /carreras.json
   def index
     @carreras = Carrera.all
+
   end
 
   # GET /carreras/1
   # GET /carreras/1.json
   def show
+    render layout: false
   end
 
   # GET /carreras/new
   def new
     @carrera = Carrera.new
+    render layout: false
   end
 
   # GET /carreras/1/edit
   def edit
+    render layout: false
   end
 
   # POST /carreras
@@ -28,7 +32,7 @@ class CarrerasController < ApplicationController
 
     respond_to do |format|
       if @carrera.save
-        format.html { redirect_to @carrera, notice: 'Carrera was successfully created.' }
+        format.html { redirect_to carreras_path, notice: 'Carrera fue almacenada con exito.' }
         format.json { render :show, status: :created, location: @carrera }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class CarrerasController < ApplicationController
   def update
     respond_to do |format|
       if @carrera.update(carrera_params)
-        format.html { redirect_to @carrera, notice: 'Carrera was successfully updated.' }
+        format.html { redirect_to carreras_path, notice: 'Carrera fue actualizada con exito' }
         format.json { render :show, status: :ok, location: @carrera }
       else
         format.html { render :edit }
@@ -56,7 +60,7 @@ class CarrerasController < ApplicationController
   def destroy
     @carrera.destroy
     respond_to do |format|
-      format.html { redirect_to carreras_url, notice: 'Carrera was successfully destroyed.' }
+      format.html { redirect_to carreras_url, notice: 'Carrera fue eliminada con exito.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +73,6 @@ class CarrerasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def carrera_params
-      params.require(:carrera).permit(:area_academica, :nombre, :telefono)
+      params.require(:carrera).permit(:area_academica_id, :nombre, :telefono)
     end
 end

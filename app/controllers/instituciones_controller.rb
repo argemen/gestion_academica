@@ -1,6 +1,13 @@
 class InstitucionesController < ApplicationController
   before_action :set_institucion, only: [:show, :edit, :update, :destroy]
 
+  #accion autocompletar
+  autocomplete :institucion, :nombre, :display_value => :nombre, :extra_data => [:siglas] do |items|
+    respond_to do |format|
+      format.json { render :json => @items }
+    end
+  end
+
   # GET /instituciones
   # GET /instituciones.json
   def index
@@ -10,18 +17,18 @@ class InstitucionesController < ApplicationController
   # GET /instituciones/1
   # GET /instituciones/1.json
   def show
-    render :layout => false
+    render layout: false
   end
 
   # GET /instituciones/new
   def new
     @institucion = Institucion.new
-    render :layout => false
+    render layout: false
   end
 
   # GET /instituciones/1/edit
   def edit
-    render :layout => false
+    render layout: false
   end
 
   # POST /instituciones
@@ -45,7 +52,7 @@ class InstitucionesController < ApplicationController
   def update
     respond_to do |format|
       if @institucion.update(institucion_params)
-        format.html { redirect_to @institucion, notice: 'Institucion was successfully updated.' }
+        format.html { redirect_to instituciones_path, notice: 'Institucion fue actualizada con exito' }
         format.json { render :show, status: :ok, location: @institucion }
       else
         format.html { render :edit }
@@ -59,7 +66,7 @@ class InstitucionesController < ApplicationController
   def destroy
     @institucion.destroy
     respond_to do |format|
-      format.html { redirect_to instituciones_url, notice: 'Institucion was successfully destroyed.' }
+      format.html { redirect_to instituciones_url, notice: 'Institucion fue eliminada con exito' }
       format.json { head :no_content }
     end
   end

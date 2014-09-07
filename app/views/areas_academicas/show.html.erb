@@ -1,4 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="modal-header">
+	          <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+	          <h4 class="panel-title">Informacion sobre el Area Academica</h4>
+	      </div>
+    </div>
+	<div class="panel-body">
+	<p>
+	  <strong>Nombre:</strong>
+	  <%= @area_academica.nombre %>
+	</p>
 
-<%= link_to 'Edit', edit_area_academica_path(@area_academica) %> |
-<%= link_to 'Back', areas_academicas_path %>
+	<p>
+	  <strong>Telefono:</strong>
+	  <%= @area_academica.telefono %>
+	</p>
+
+	<p>
+	  <strong>Institucion:</strong>
+	  <%= @area_academica.institucion %>
+	</p>
+
+	</div>
+</div>

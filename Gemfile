@@ -15,7 +15,17 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 gem 'therubyracer', '~> 0.12.1'
 
+#error de content body
+gem 'thin'
+
 gem 'less-rails'
+
+#gems autocomplete
+gem 'rails4-autocomplete'
+gem 'jquery-ui-rails'
+
+#gem for json encoder
+gem 'activesupport-json_encoder'
 
 gem 'twitter-bootstrap-rails'
 
