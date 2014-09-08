@@ -1,6 +1,6 @@
 class InstitucionesController < ApplicationController
   before_action :set_institucion, only: [:show, :edit, :update, :destroy]
-
+  
   #accion autocompletar
   autocomplete :institucion, :nombre, :display_value => :nombre, :extra_data => [:siglas] do |items|
     respond_to do |format|

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :planificaciones
+
+  resources :unidades_curriculares
+
   resources :evaluaciones
 
   resources :secciones

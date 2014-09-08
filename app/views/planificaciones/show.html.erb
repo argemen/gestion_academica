@@ -1,0 +1,34 @@
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="modal-header">
+            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+            <h4 class="panel-title">Informacion sobre la Institucion</h4>
+        </div>
+    </div>
+  <div class="panel-body">
+  <p>
+    <strong>Semestre:</strong>
+    <%= @planificacion.semestre.nombre %>
+  </p>
+
+  <p>
+    <strong>Carrera:</strong>
+    <%= @planificacion.carrera.nombre %>
+  </p>
+
+  <p>
+    <strong>Unidad curricular:</strong>
+    <%= @planificacion.unidad_curricular.nombre %>
+  </p>
+
+  <p>
+    <strong>Seccion:</strong>
+    <%= @planificacion.seccion.nombre %>
+  </p>
+
+  <p>
+    <strong>Lapsos:</strong>
+    <%= @planificacion.lapsos %>
+  </p>
+  </div>
+</div>
