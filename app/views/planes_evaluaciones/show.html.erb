@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Planificacion:</strong>
+  <%= @plan_evaluacion.planificacion_id %>
+</p>
+
+<p>
+  <strong>Evaluacion:</strong>
+  <%= @plan_evaluacion.evaluacion_id %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @plan_evaluacion.fecha %>
+</p>
+
+<p>
+  <strong>Puntuacion:</strong>
+  <%= @plan_evaluacion.puntuacion %>
+</p>
+
+<%= link_to 'Edit', edit_plan_evaluacion_path(@plan_evaluacion) %> |
+<%= link_to 'Back', planes_evaluacion_path %>

@@ -1,16 +1,13 @@
 Rails.application.routes.draw do
   
-  resources :planificaciones
+ 
+  root :to => 'planificaciones#index' 
 
-  resources :unidades_curriculares
-
-  resources :evaluaciones
-
-  resources :secciones
-
-  resources :semestres
-
-  resources :carreras 
+  devise_for :users
+  
+  get 'planificaciones/detalle/:id' => 'planes_evaluaciones#detalle' 
+  
+  resources :planificaciones, :unidades_curriculares, :evaluaciones, :secciones, :semestres, :carreras, :planes_evaluaciones
 
   resources :areas_academicas do
     collection do

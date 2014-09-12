@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908002243) do
+ActiveRecord::Schema.define(version: 20140910153723) do
 
   create_table "areas_academicas", force: true do |t|
     t.integer  "institucion_id", null: false
@@ -46,15 +46,30 @@ ActiveRecord::Schema.define(version: 20140908002243) do
     t.datetime "updated_at"
   end
 
+  create_table "planes_evaluaciones", force: true do |t|
+    t.integer  "planificacion_id", null: false
+    t.integer  "evaluacion_id"
+    t.date     "fecha"
+    t.integer  "puntuacion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "planificaciones", force: true do |t|
-    t.integer  "periodo_lectivo_id"
-    t.integer  "carrera_id"
-    t.integer  "unidad_curricular_id"
-    t.integer  "seccion_id"
+    t.integer  "semestre_id",          null: false
+    t.integer  "carrera_id",           null: false
+    t.integer  "unidad_curricular_id", null: false
+    t.integer  "seccion_id",           null: false
     t.integer  "lapsos"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "planificaciones", ["carrera_id"], name: "carrera_id", using: :btree
+  add_index "planificaciones", ["seccion_id"], name: "seccion_id", using: :btree
+  add_index "planificaciones", ["semestre_id"], name: "periodo_lectivo_id", using: :btree
+  add_index "planificaciones", ["semestre_id"], name: "semestre_id", using: :btree
+  add_index "planificaciones", ["unidad_curricular_id"], name: "unidad_curricular_id", using: :btree
 
   create_table "secciones", force: true do |t|
     t.string   "nombre"
@@ -73,5 +88,23 @@ ActiveRecord::Schema.define(version: 20140908002243) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

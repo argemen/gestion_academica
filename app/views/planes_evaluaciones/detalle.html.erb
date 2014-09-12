@@ -1,0 +1,31 @@
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="modal-header">
+	          <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+	          <h5 class="panel-title">Plan de Evaluacion</h5>
+	      </div>
+    </div>
+    <div class="panel-body nopadding">
+    	<h4>  <%= @planificacion.detalle  %></h4>
+    	<div class="form-group">
+         <table id="detalles">
+         <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Evaluacion</th>
+            <th>Puntuacion (%)</th>
+          </tr>
+         </thead>
+         <tbody>
+         <% @planificacion.plan_evaluacion.each do | plan | %>
+         	<tr>
+            <td><%= plan.fecha.strftime("%d-%m-%Y")  %></td>
+            <td><%= plan.evaluacion.nombre %></td>
+            <td><%= plan.puntuacion %></td>
+          </tr>
+         <% end %>
+         </tbody>
+          </table>
+    </div>
+    </div>
+</div><!-- panel -->

@@ -1,0 +1,45 @@
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="modal-header">
+	          <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+	          <h4 class="panel-title">Cargar Plan de Evaluacion</h4>
+	      </div>
+    </div>
+	<%= render 'form' %>
+</div><!-- panel -->
+<script>
+  var  count = 0; 
+  //funcion para eliminar row
+  function borrar() {
+    // Select all table cells to bind a click event
+    $('table#detalles tbody td').click(function(){
+        $(this).parent().remove();
+        count--;
+    });
+  }
+
+  jQuery(document).ready(function() {
+
+      jQuery("select#plan_evaluacion_evaluacion_id").select2();
+      jQuery("select#plan_evaluacion_puntuacion").select2();
+
+      //acciones para agregar una estrategia
+      $('button#agregar').click(function() {
+          //obtenemos los valores de los inputs
+          var evaluacion = $('#plan_evaluacion_evaluacion_id option:selected').text();
+          var evaluacion_id = $('#plan_evaluacion_evaluacion_id').val();
+          var fecha = $('#plan_evaluacion_fecha').val();
+          var puntuacion = $('#plan_evaluacion_puntuacion option:selected').text();
+          
+          //se agrega al detalle de al vista
+          $('#detalles tbody').append('<tr><td>'+ fecha +'</td><td>'+ evaluacion +'</td><td>'+ puntuacion +'</td><td><a href="#" onclick="borrar();"><img src="../images/delete.png" width="16px" border="0"></a></td></tr>');
+         
+          //se crean los inpust hidden
+          $('#entradas').append('<input type="hidden" name="p['+ count +'][plan_evaluacion]" values="'+ evaluacion_id +'">');
+
+          //se incrementa 
+          count++;
+      });
+
+  });
+</script>

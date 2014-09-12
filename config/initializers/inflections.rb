@@ -12,6 +12,7 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
    inflect.irregular 'evaluacion', 'evaluaciones'
    inflect.irregular 'unidad_curricular', 'unidades_curriculares'
    inflect.irregular 'planificacion', 'planificaciones'
+   inflect.irregular 'plan_evaluacion', 'planes_evaluaciones'
 #   inflect.uncountable %w( fish sheep )
 end
 

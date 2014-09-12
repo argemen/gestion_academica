@@ -13,7 +13,7 @@
 <div class="panel-body nopadding">
   <div class="form-group">
     <%= f.label :semestre_id, class: 'col-sm-4 control-label' %><br>
-    <div class="col-sm-8"><%= f.select :semestre_id, Semestre.all.collect { |s| [ s.nombre, s.id ]}, prompt: 'Seleccione...' %></div>
+    <div class="col-sm-2"><%= f.select :semestre_id, Semestre.all.collect { |s| [ s.nombre, s.id ]}, prompt: 'Seleccione...' %></div>
   </div>
   <div class="form-group">
     <%= f.label :carrera_id, class: 'col-sm-4 control-label' %><br>

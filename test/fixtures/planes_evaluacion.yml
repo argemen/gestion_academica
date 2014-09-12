@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  planificacion_id: 1
+  evaluacion_id: 1
+  fecha: 2014-09-10
+  puntuacion: 1
+
+two:
+  planificacion_id: 1
+  evaluacion_id: 1
+  fecha: 2014-09-10
+  puntuacion: 1

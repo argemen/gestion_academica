@@ -1,5 +1,5 @@
 class PlanificacionesController < ApplicationController
-  before_action :set_planificacion, only: [:show, :edit, :update, :destroy]
+  before_action :set_planificacion, only: [:show, :edit, :update, :destroy, :ver_plan]
 
   # GET /planificaciones
   # GET /planificaciones.json
@@ -10,6 +10,12 @@ class PlanificacionesController < ApplicationController
   # GET /planificaciones/1
   # GET /planificaciones/1.json
   def show
+    render layout: false
+  end
+
+  #GET /ver_plan/1
+  def verPlan
+    @planificacion = Planificacion.find(planificacion_params)
     render layout: false
   end
 

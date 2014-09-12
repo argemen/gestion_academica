@@ -1,0 +1,61 @@
+<%= form_for(@plan_evaluacion) do |f| %>
+  <% if @plan_evaluacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@plan_evaluacion.errors.count, "error") %> prohibited this plan_evaluacion from being saved:</h2>
+
+      <ul>
+      <% @plan_evaluacion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="panel-body nopadding">
+    <div id="entradas">
+      
+    </div>
+    <div class='col-sm-14 control-label'><strong>Planificacion:</strong> <%= @planificacion.detalle  %></div>
+    <div class="form-group">
+       <div class="col-sm-8"><%= f.hidden_field :planificacion_id, value: @planificacion.id %></div>
+    </div>
+    <div class="form-group">
+      <%= f.label :evaluacion_id, class: 'col-sm-4 control-label'  %><br>
+      <div class="col-sm-8"><%= f.select :evaluacion_id, Evaluacion.all.collect { |e| [ e.nombre, e.id ]}, prompt: 'Seleccione...' %></div>
+    </div>
+    <div class="form-group">
+      <%= f.label :fecha, class: 'col-sm-4 control-label'  %><br>
+      <div class="col-sm-8"><%= f.date_field :fecha %></div>
+    </div>
+    <div class="form-group">
+      <%= f.label :puntuacion, class: 'col-sm-4 control-label'  %><br>
+      <div class="col-sm-8"><%= f.select :puntuacion, (1...100).collect { |p| [ p ]}, prompt: 'Seleccione...' %></div>
+    </div>
+    <div class="form-group">
+      <button type="button" class="btn btn-danger btn-xs mr5" id="agregar">Agregar</button>   
+    </div>
+    <div class="form-group">
+         <table id="detalles">
+         <thead>
+         <tr>
+           <th colspan="5">Detalle Plan</th>
+         </tr>
+          <tr>
+            <th>Fecha</th>
+            <th>Evaluacion</th>
+            <th>Puntuacion</th>
+            <th>Eliminar</th>
+          </tr>
+         </thead>
+         <tbody>
+           
+
+         </tbody>
+          </table>
+    </div>
+    <div class="panel-footer">
+      <button type="submit" class="btn btn-primary mr5">Guardar</button>
+      <button type="reset" class="btn btn-dark">Limpiar</button>
+    </div>
+<% end %>
+

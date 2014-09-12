@@ -43,11 +43,9 @@
                             </button>
                             <ul class="dropdown-menu pull-right" role="menu">
                               <li><a href="#"><i class="glyphicon glyphicon-user"></i> My Profile</a></li>
-                              <li><a href="#"><i class="glyphicon glyphicon-star"></i> Activity Log</a></li>
-                              <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Account Settings</a></li>
-                              <li><a href="#"><i class="glyphicon glyphicon-question-sign"></i> Help</a></li>
+                        
                               <li class="divider"></li>
-                              <li><a href="#"><i class="glyphicon glyphicon-log-out"></i>Sign Out</a></li>
+                              <li><%= link_to '<i class="glyphicon glyphicon-log-out"></i>Salir'.html_safe, destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
                             </ul>
                         </div><!-- btn-group -->
                         
@@ -66,8 +64,10 @@
                             <%= image_tag 'profile.png', class: 'img-circle', alt: '' %>
                         </a>
                         <div class="media-body">
-                            <h4 class="media-heading">Elen Adarna</h4>
-                            <small class="text-muted">Beach Lover</small>
+                            <% if user_signed_in? %>
+                            <h4 class="media-heading">Usuario Conectado:</h4>
+                            <small class="text-muted"><%= current_user.email %></small>
+                            <% end %>
                         </div>
                     </div><!-- media -->
                     
@@ -101,6 +101,15 @@
                     </div><!-- pageheader -->
                     
                     <div class="contentpanel">
+                        <% if notice %>
+                          <div class="alert alert-success">
+                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                             <%= notice %>
+                             </div>
+                        <% end %>
+                        <% if alert %>
+                          <p class="alert alert-danger"><%= alert %></p>
+                        <% end %>
                         <%= yield %>
                        
                     </div><!-- contentpanel -->

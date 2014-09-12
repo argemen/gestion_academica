@@ -81,7 +81,8 @@ a:focus {
 /**************************************/
 
 .headerwrapper {
-    background-color: #428BCA;
+    /*background-color: #428BCA;*/
+    background: url('../images/dark-gray-blue.jpg');
     min-height: 60px;
     position: fixed;
     width: 100%;
@@ -1585,8 +1586,29 @@ a:focus {
 .panel-danger-head .panel-footer,
 .panel-info-head .panel-footer,
 .panel-dark-head .panel-footer {
-    border: 1px solid #ddd;
+    border: 1px solid o#ddd;
     border-top: 0;
+}
+
+.panel-info table#detalles {
+    width: 98%;
+    margin: 0 auto;
+    
+}
+
+.panel-info table#detalles th{
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    background-color: #636e7b;
+    color: #ffffff;
+    text-align: center;
+
+}
+
+.panel-info table#detalles td{
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
 }
 
 .panel-primary-head .panel-heading {
@@ -2985,7 +3007,7 @@ table.dataTable.dtr-inline.collapsed tbody th:first-child:before {
 /***** 9.7 SIGN IN/UP PAGE *****/
 
 body.signin {
-    background-color: #428bca;
+    background: url('../images/dark-gray-blue.jpg');
 }
 
 .panel-signin,
@@ -2994,7 +3016,7 @@ body.signin {
 }
 
 .panel-signin {
-    width: 400px;
+    width: 420px;
 }
 
 .panel-signup {
@@ -3003,7 +3025,7 @@ body.signin {
 
 .panel-signin .panel-body,
 .panel-signup .panel-body {
-    padding: 40px;
+    padding: 20px 40px 20px 40px;
 }
 
 .panel-signin .panel-footer,

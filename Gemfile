@@ -15,6 +15,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 gem 'therubyracer', '~> 0.12.1'
 
+#gem authentication
+gem 'devise'
+
 #error de content body
 gem 'thin'
 
